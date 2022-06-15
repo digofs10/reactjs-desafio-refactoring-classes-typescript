@@ -1,23 +1,15 @@
 import { FiCheckSquare } from "react-icons/fi";
+import { IFood } from "../../types";
 
 import { Form } from "./styles";
 import Modal from "../Modal";
 import Input from "../Input";
 
-interface Food {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  available: boolean;
-  image: string;
-}
-
 interface ModalEditFoodProps {
   isOpen: boolean;
   setIsOpen: () => void;
-  editingFood: Food;
-  handleUpdateFood: (food: Food) => void;
+  editingFood: IFood;
+  handleUpdateFood: (food: IFood) => void;
 }
 
 function ModalEditFood({
@@ -26,7 +18,7 @@ function ModalEditFood({
   editingFood,
   handleUpdateFood,
 }: ModalEditFoodProps) {
-  const handleSubmit = async (data: Food) => {
+  const handleSubmit = async (data: IFood) => {
     handleUpdateFood(data);
     setIsOpen();
   };
